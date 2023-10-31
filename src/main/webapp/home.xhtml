@@ -10,16 +10,18 @@
 		<h1>Olá JSF</h1>
 		Nome:
 		<h:inputText id="campoNome" value="#{pessoaBean.nome}"/>
+		<h:commandButton binding="#{pessoaBean.commandButton}" value="Add Nome" action="#{pessoaBean.addNome}" />
 		<br />
-		Sobrenome:
-		<h:inputText id="sobrenome" value="#{pessoaBean.sobrenome}" />
+		<h:dataTable value="#{pessoaBean.nomes}" var="nome">
+			<h:column>
+				<h:outputText value="#{nome}" />
+			</h:column>
+		</h:dataTable>
 		<br />
-		Nome completo:
-		<h:outputText id="nomeCompleto" value="#{pessoaBean.nomeCompleto}" />
+		<h:inputSecret id="senha" value="#{pessoaBean.senha}"/>
 		<br />
-		<h:commandButton value="Mostra Nome Completo" action="#{pessoaBean.mostraNome}" />
-		<br />
-		<h:commandButton value="Add Nome" actionListener="#{pessoaBean.addNome}" />
+		<h:inputTextarea id="texto" value="#{pessoaBean.texto}" rows="10" cols="10"/>
+		
 	</h:form>
 </h:body>
 </html>
